@@ -1,211 +1,280 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مبادرة جميلة - المادة 34</title>
+
+    <title>مبادرة جميلة | المادة 34</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #171923;
-            font-family: Tahoma, Arial, sans-serif;
-            color: #292b35;
+        html {
+            min-height: 100%;
+            background: #f8f4e9;
         }
 
-        .page {
-            max-width: 900px;
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #f8f4e9;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .poster {
+            width: 100%;
+            min-height: 100vh;
             margin: 0 auto;
-            background-color: #f8f4e9;
-            padding: 35px;
-            border: 5px solid #c5b58b;
-            outline: 2px solid #f8f4e9;
-            outline-offset: -12px;
-            min-height: 700px;
+            padding: 25px 35px;
+            background: #f8f4e9;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .top {
+            color: #174b38;
+            text-align: center;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: bold;
+            padding: 5px 0 15px;
+        }
+
+        .paper {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .header {
-            font-size: 23px;
+        h1 {
+            color: #174b38;
+            font-size: clamp(45px, 7vw, 72px);
+            margin: 5px 0 15px;
             font-weight: bold;
-            color: #171923;
-            margin-bottom: 25px;
         }
 
-        .title {
-            font-size: 58px;
+        .description {
+            color: #174b38;
+            font-size: clamp(20px, 3.3vw, 29px);
             font-weight: bold;
-            color: #a52530;
-            margin: 10px 0;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto 20px;
         }
 
-        .article {
-            font-size: 25px;
-            font-weight: bold;
-            line-height: 2;
-            margin: 15px auto;
-            max-width: 700px;
-        }
-
-        .map-container {
+        /* الخريطة والخطوط على الجانبين */
+        .map-row {
+            width: 100%;
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: 18px;
-            margin: 25px auto;
-            max-width: 650px;
-        }
-
-        .red-line {
-            flex: 1;
-            height: 5px;
-            background-color: #a52530;
-            border-radius: 5px;
+            gap: 22px;
+            margin: 10px auto 20px;
         }
 
         .map {
-            width: 180px;
-            max-width: 45%;
-            height: auto;
-            display: block;
-        }
-
-        .instruction {
-            font-size: 18px;
-            color: #55545b;
-            line-height: 1.9;
-            margin: 20px auto;
-        }
-
-        .signatures {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 35px auto 20px;
-        }
-
-        .signature {
-            flex: 1;
-            max-width: 300px;
+            flex: 0 1 490px;
+            width: 490px;
+            max-width: 55%;
             min-width: 0;
-            border-bottom: 2px solid #a52530;
-            padding: 15px 5px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #292b35;
-            cursor: pointer;
-            user-select: none;
-            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .hearts {
+        .map img {
             display: block;
-            color: #a52530;
-            font-size: 25px;
-            margin-top: 8px;
-            overflow-wrap: anywhere;
+            width: 100%;
+            max-height: 430px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* خطا القلوب: واحد على كل جانب من الخريطة */
+        .signature-line {
+            position: relative;
+            flex: 1 1 0;
+            min-width: 65px;
+            max-width: 210px;
+            height: 100px;
+            border-top: 2px solid #aaa493;
+            border-bottom: 2px solid #aaa493;
+            cursor: pointer;
+            touch-action: manipulation;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .signature-line:focus-visible {
+            outline: 2px solid #174b38;
+            outline-offset: 3px;
+        }
+
+        .heart {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            font-size: clamp(20px, 3vw, 30px);
+            pointer-events: none;
+            user-select: none;
+            line-height: 1;
         }
 
         .slogan {
-            font-size: 25px;
+            font-size: clamp(27px, 4.5vw, 42px);
             font-weight: bold;
-            color: #a52530;
-            margin-top: 30px;
-            line-height: 1.8;
+            line-height: 1.7;
+            margin: 15px 0 5px;
         }
 
-        .buttons {
-            margin-top: 25px;
+        .green {
+            color: #174b38;
         }
 
-        button {
-            background-color: #a52530;
-            color: #ffffff;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
-            cursor: pointer;
+        .red {
+            color: #c51d3b;
         }
 
-        button:hover {
-            background-color: #801c25;
+        .flag {
+            display: inline-block;
+            margin-right: 5px;
         }
 
         .credits {
-            color: #f8f4e9;
-            text-align: center;
-            font-size: 17px;
-            line-height: 1.8;
-            margin: 22px auto 0;
-            padding: 16px 5px 5px;
-            border-top: 1px solid #454650;
-            max-width: 900px;
+            color: #174b38;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: bold;
+            line-height: 1.9;
+            margin: 12px auto 0;
+            padding-bottom: 5px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 12px;
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin: 12px 0 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 11px 20px;
+            font-size: 15px;
+            font-family: inherit;
+            cursor: pointer;
+            background: #174b38;
+            color: white;
+        }
+
+        button:hover {
+            background: #22694d;
+        }
+
+        .hint {
+            color: #777064;
+            font-size: 14px;
+            margin: 5px 0 0;
+        }
+
+        /* تنسيق الآيباد */
+        @media (min-width: 600px) and (max-width: 1100px) {
+            .poster {
+                padding: 25px 28px;
             }
 
-            .page {
-                padding: 25px 18px;
-                min-height: auto;
-            }
-
-            .header {
-                font-size: 20px;
-            }
-
-            .title {
-                font-size: 43px;
-            }
-
-            .article {
-                font-size: 20px;
-            }
-
-            .map-container {
-                gap: 10px;
+            .map-row {
+                gap: 18px;
             }
 
             .map {
-                width: 135px;
+                flex-basis: 420px;
+                max-width: 57%;
             }
 
-            .red-line {
-                height: 4px;
+            .map img {
+                max-height: 380px;
             }
 
-            .instruction {
-                font-size: 16px;
+            .signature-line {
+                height: 100px;
+                max-width: 180px;
+            }
+        }
+
+        /* تنسيق الجوال */
+        @media (max-width: 599px) {
+            .poster {
+                padding: 18px 12px;
+                min-height: 100vh;
             }
 
-            .signatures {
-                gap: 15px;
+            .top {
+                padding-bottom: 10px;
             }
 
-            .signature {
-                font-size: 15px;
-                padding: 12px 3px;
+            h1 {
+                margin: 5px 0 12px;
             }
 
-            .hearts {
-                font-size: 22px;
+            .description {
+                margin-bottom: 12px;
             }
 
-            .slogan {
+            .map-row {
+                gap: 7px;
+                margin: 12px auto 18px;
+            }
+
+            .map {
+                flex: 0 1 62%;
+                max-width: 62%;
+            }
+
+            .map img {
+                max-height: 300px;
+            }
+
+            .signature-line {
+                min-width: 0;
+                height: 75px;
+                flex: 1 1 19%;
+            }
+
+            .heart {
                 font-size: 21px;
             }
 
+            .slogan {
+                margin-top: 10px;
+            }
+
             .credits {
-                font-size: 15px;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .poster {
+                padding: 14px 8px;
+            }
+
+            .map-row {
+                gap: 5px;
+            }
+
+            .map {
+                flex-basis: 64%;
+                max-width: 64%;
+            }
+
+            .signature-line {
+                height: 65px;
             }
         }
     </style>
@@ -213,124 +282,190 @@
 
 <body>
 
-    <main class="page">
+    <main class="poster">
 
-        <header class="header">
+        <header class="top">
             مبادرة جميلة
         </header>
 
-        <h1 class="title">
-            المادة 34
-        </h1>
+        <section class="paper">
 
-        <p class="article">
-            الدفاع عن العقيدة الإسلامية، والمجتمع، والوطن،
-            واجب على كل مواطن.
-        </p>
+            <h1>المادة 34</h1>
 
-        <div class="map-container">
+            <p class="description">
+                الدفاع عن العقيدة الإسلامية،
+                والمجتمع، والوطن،
+                واجب على كل مواطن.
+            </p>
 
-            <div class="red-line"></div>
+            <div class="map-row">
 
-            <img
-                class="map"
-                src="sa.svg"
-                alt="خريطة المملكة العربية السعودية"
-            >
+                <!-- خط القلوب على يمين الخريطة -->
+                <div
+                    class="signature-line"
+                    tabindex="0"
+                    role="button"
+                    aria-label="اضغطي لإضافة قلب على يمين الخريطة">
+                </div>
 
-            <div class="red-line"></div>
+                <!-- خريطة المملكة العربية السعودية -->
+                <div class="map">
+                    <img
+                        src="sa.svg"
+                        alt="خريطة المملكة العربية السعودية">
+                </div>
 
-        </div>
+                <!-- خط القلوب على يسار الخريطة -->
+                <div
+                    class="signature-line"
+                    tabindex="0"
+                    role="button"
+                    aria-label="اضغطي لإضافة قلب على يسار الخريطة">
+                </div>
 
-        <p class="instruction">
-            اترك بصمتك وعبّر عن حبك وولائك لوطنك 🇸🇦
-            <br>
-            اضغط على مكان التوقيع لإضافة قلب ❤️
-        </p>
-
-        <section class="signatures">
-
-            <div class="signature" data-signature="1" role="button" tabindex="0">
-                بصمتي لوطني
-                <span class="hearts" id="hearts1"></span>
             </div>
 
-            <div class="signature" data-signature="2" role="button" tabindex="0">
-                عهدي لوطني
-                <span class="hearts" id="hearts2"></span>
+            <p class="slogan">
+                <span class="green">بصمة دفاع.. السعودية</span>
+                <span class="red">خط أحمر</span>
+                <span class="flag">🇸🇦</span>
+            </p>
+
+            <footer class="credits">
+                إعداد: أ/ نوال الثبيتي - أ/ ساره الثبيتي
+            </footer>
+
+            <p class="hint">
+                اضغطي على الخط بجانب الخريطة واتركي بصمتك ❤️
+            </p>
+
+            <div class="buttons">
+                <button id="clearButton" type="button">
+                    إعادة من البداية ↺
+                </button>
             </div>
 
         </section>
 
-        <div class="slogan">
-            بصمة دفاع.. السعودية خط أحمر 🇸🇦
-        </div>
-
     </main>
 
-    <div class="buttons">
-        <button id="clearButton" type="button">
-            إعادة من البداية ↺
-        </button>
-    </div>
-
-    <footer class="credits">
-        إعداد: أ/ نوال الثبيتي - أ/ ساره الثبيتي
-    </footer>
-
     <script>
-        const signatures = document.querySelectorAll(".signature");
+        const lines = document.querySelectorAll(".signature-line");
+        const storageKey = "mubadara34-hearts-v2";
 
-        function loadHearts() {
-            signatures.forEach(function (signature) {
-                const number = signature.dataset.signature;
-                const heartsElement = document.getElementById("hearts" + number);
-                const savedHearts = Number(
-                    localStorage.getItem("hearts" + number) || 0
-                );
-
-                heartsElement.textContent = "❤️".repeat(
-                    Math.min(savedHearts, 100)
-                );
-            });
-        }
-
-        function addHeart(signature) {
-            const number = signature.dataset.signature;
-            const heartsElement = document.getElementById("hearts" + number);
-            const currentHearts = Number(
-                localStorage.getItem("hearts" + number) || 0
+        function saveHearts() {
+            const data = [...lines].map(line =>
+                [...line.querySelectorAll(".heart")].map(heart => ({
+                    x: Number(heart.dataset.x),
+                    y: Number(heart.dataset.y)
+                }))
             );
 
-            if (currentHearts >= 100) {
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(data));
+            } catch (error) {
+                console.log("تعذر حفظ البصمات");
+            }
+        }
+
+        function addHeart(line, x, y, save = true) {
+            if (line.querySelectorAll(".heart").length >= 100) {
                 return;
             }
 
-            const newHearts = currentHearts + 1;
+            const heart = document.createElement("span");
 
-            localStorage.setItem("hearts" + number, newHearts);
+            heart.className = "heart";
+            heart.textContent = "❤️";
+            heart.style.left = x + "%";
+            heart.style.top = y + "%";
+            heart.dataset.x = x;
+            heart.dataset.y = y;
 
-            heartsElement.textContent = "❤️".repeat(newHearts);
+            line.appendChild(heart);
+
+            if (save) {
+                saveHearts();
+            }
         }
 
-        signatures.forEach(function (signature) {
-            signature.addEventListener("click", function () {
-                addHeart(signature);
+        function placeHeart(line, clientX, clientY) {
+            const rect = line.getBoundingClientRect();
+
+            const x = Math.max(
+                5,
+                Math.min(95, ((clientX - rect.left) / rect.width) * 100)
+            );
+
+            const y = Math.max(
+                15,
+                Math.min(85, ((clientY - rect.top) / rect.height) * 100)
+            );
+
+            addHeart(line, x, y);
+        }
+
+        lines.forEach(line => {
+            line.addEventListener("click", event => {
+                placeHeart(line, event.clientX, event.clientY);
             });
 
-            signature.addEventListener("keydown", function (event) {
+            line.addEventListener("keydown", event => {
                 if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
-                    addHeart(signature);
+
+                    const rect = line.getBoundingClientRect();
+
+                    placeHeart(
+                        line,
+                        rect.left + rect.width / 2,
+                        rect.top + rect.height / 2
+                    );
                 }
             });
         });
 
-        document.getElementById("clearButton").addEventListener("click", function () {
-            localStorage.removeItem("hearts1");
-            localStorage.removeItem("hearts2");
-            loadHearts();
-        });
+        function loadHearts() {
+            try {
+                const data = JSON.parse(
+                    localStorage.getItem(storageKey) || "[]"
+                );
+
+                data.forEach((hearts, index) => {
+                    if (!lines[index] || !Array.isArray(hearts)) {
+                        return;
+                    }
+
+                    hearts.forEach(heart => {
+                        if (
+                            typeof heart.x === "number" &&
+                            typeof heart.y === "number"
+                        ) {
+                            addHeart(
+                                lines[index],
+                                heart.x,
+                                heart.y,
+                                false
+                            );
+                        }
+                    });
+                });
+            } catch (error) {
+                console.log("تعذر استعادة البصمات");
+            }
+        }
+
+        document
+            .getElementById("clearButton")
+            .addEventListener("click", () => {
+                lines.forEach(line => line.replaceChildren());
+
+                try {
+                    localStorage.removeItem(storageKey);
+                } catch (error) {
+                    console.log("تعذر مسح البصمات");
+                }
+            });
 
         loadHearts();
     </script>
