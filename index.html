@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> | المادة 34</title>
+    <title>مبادرة جميلة | المادة 34</title>
 
     <style>
         * {
@@ -39,52 +39,56 @@
             justify-content: center;
         }
 
+        /* العنوان العلوي */
         .top {
             color: #174b38;
             text-align: center;
-            font-size: clamp(17px, 2.3vw, 24px);
+            font-size: clamp(20px, 2.6vw, 27px);
             font-weight: bold;
             padding: 2px 0 5px;
         }
 
         .paper {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             text-align: center;
         }
 
+        /* العنوان الرئيسي */
         h1 {
             color: #174b38;
-            font-size: clamp(34px, 5vw, 48px);
-            margin: 0 0 4px;
+            font-size: clamp(38px, 5.5vw, 54px);
+            margin: 0 0 5px;
             font-weight: bold;
         }
 
+        /* نص المادة */
         .description {
             color: #174b38;
-            font-size: clamp(15px, 2.2vw, 20px);
+            font-size: clamp(17px, 2.5vw, 23px);
             font-weight: bold;
             line-height: 1.5;
-            max-width: 850px;
-            margin: 0 auto 5px;
+            max-width: 950px;
+            margin: 0 auto 7px;
         }
 
-        /* الخريطة والخطان على الجانبين */
+        /* الخريطة والخطان */
         .map-row {
             width: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 0;
             margin: 4px auto 7px;
         }
 
+        /* الخريطة أكبر شوي */
         .map {
-            flex: 0 1 400px;
-            width: 400px;
-            max-width: 44%;
+            flex: 0 1 440px;
+            width: 440px;
+            max-width: 48%;
             min-width: 0;
             display: flex;
             align-items: center;
@@ -94,18 +98,18 @@
         .map img {
             display: block;
             width: 100%;
-            max-height: 300px;
+            max-height: 330px;
             height: auto;
             object-fit: contain;
         }
 
-        /* خطوط تفاعلية طويلة على جانبي الخريطة */
+        /* الخطوط تلتصق بالخريطة مباشرة */
         .signature-line {
             position: relative;
             flex: 1 1 0;
             min-width: 0;
             max-width: none;
-            height: 105px;
+            height: 110px;
             border-top: 2px solid #aaa493;
             border-bottom: 2px solid #aaa493;
             cursor: pointer;
@@ -119,17 +123,19 @@
             outline-offset: 2px;
         }
 
+        /* القلوب */
         .heart {
             position: absolute;
             transform: translate(-50%, -50%);
-            font-size: clamp(17px, 2.5vw, 27px);
+            font-size: clamp(18px, 2.7vw, 29px);
             pointer-events: none;
             user-select: none;
             line-height: 1;
         }
 
+        /* الشعار */
         .slogan {
-            font-size: clamp(22px, 3.3vw, 30px);
+            font-size: clamp(25px, 3.6vw, 34px);
             font-weight: bold;
             line-height: 1.5;
             margin: 4px 0 0;
@@ -148,19 +154,20 @@
             margin-right: 3px;
         }
 
+        /* أسماء الإعداد */
         .credits {
             color: #174b38;
-            font-size: clamp(13px, 1.8vw, 17px);
+            font-size: clamp(15px, 2vw, 19px);
             font-weight: bold;
             line-height: 1.5;
-            margin: 3px auto 0;
+            margin: 4px auto 0;
             padding: 0;
         }
 
         .hint {
             color: #777064;
-            font-size: 11px;
-            margin: 3px 0 0;
+            font-size: 12px;
+            margin: 4px 0 0;
         }
 
         .buttons {
@@ -173,7 +180,7 @@
             border: none;
             border-radius: 7px;
             padding: 7px 14px;
-            font-size: 12px;
+            font-size: 13px;
             font-family: inherit;
             cursor: pointer;
             background: #174b38;
@@ -184,7 +191,7 @@
             background: #22694d;
         }
 
-        /* ضبط خاص للآيباد */
+        /* ضبط الآيباد */
         @media (min-width: 600px) and (max-width: 1100px) {
             .poster {
                 padding: 6px 10px;
@@ -192,56 +199,60 @@
             }
 
             .top {
-                font-size: 19px;
+                font-size: 21px;
                 padding: 0 0 3px;
             }
 
             h1 {
-                font-size: 40px;
-                margin-bottom: 3px;
+                font-size: 44px;
+                margin-bottom: 4px;
             }
 
             .description {
-                font-size: 17px;
+                font-size: 19px;
                 line-height: 1.4;
-                margin-bottom: 3px;
+                margin-bottom: 5px;
             }
 
             .map-row {
-                gap: 9px;
+                gap: 0;
                 margin: 3px 0 5px;
             }
 
             .map {
-                flex-basis: 350px;
-                max-width: 43%;
+                flex: 0 1 390px;
+                max-width: 48%;
             }
 
             .map img {
-                max-height: 260px;
+                max-height: 285px;
             }
 
             .signature-line {
-                height: 95px;
+                height: 100px;
+            }
+
+            .heart {
+                font-size: 24px;
             }
 
             .slogan {
-                font-size: 25px;
-                margin-top: 2px;
+                font-size: 28px;
+                margin-top: 3px;
             }
 
             .credits {
-                font-size: 15px;
-                margin-top: 2px;
+                font-size: 17px;
+                margin-top: 3px;
             }
 
             .hint {
-                font-size: 10px;
-                margin-top: 2px;
+                font-size: 11px;
+                margin-top: 3px;
             }
 
             .buttons {
-                margin-top: 3px;
+                margin-top: 4px;
             }
 
             button {
@@ -250,7 +261,7 @@
             }
         }
 
-        /* ضبط خاص للجوال */
+        /* ضبط الجوال */
         @media (max-width: 599px) {
             .poster {
                 padding: 12px 8px;
@@ -259,22 +270,23 @@
             }
 
             .top {
+                font-size: 20px;
                 padding-bottom: 6px;
             }
 
             h1 {
-                font-size: 35px;
+                font-size: 39px;
                 margin-bottom: 6px;
             }
 
             .description {
-                font-size: 15px;
+                font-size: 17px;
                 line-height: 1.6;
                 margin-bottom: 8px;
             }
 
             .map-row {
-                gap: 5px;
+                gap: 0;
                 margin: 6px auto 10px;
             }
 
@@ -284,12 +296,12 @@
             }
 
             .map img {
-                max-height: 260px;
+                max-height: 270px;
             }
 
             .signature-line {
                 flex: 1 1 0;
-                height: 75px;
+                height: 80px;
             }
 
             .heart {
@@ -297,18 +309,18 @@
             }
 
             .slogan {
-                font-size: 22px;
+                font-size: 24px;
                 line-height: 1.6;
                 margin-top: 5px;
             }
 
             .credits {
-                font-size: 14px;
+                font-size: 15px;
                 margin-top: 5px;
             }
 
             .hint {
-                font-size: 10px;
+                font-size: 11px;
             }
 
             .buttons {
@@ -316,13 +328,14 @@
             }
         }
 
+        /* الجوالات الصغيرة */
         @media (max-width: 360px) {
             .poster {
                 padding: 8px 5px;
             }
 
             .map-row {
-                gap: 4px;
+                gap: 0;
             }
 
             .map {
@@ -331,35 +344,15 @@
             }
 
             .map img {
-                max-height: 220px;
+                max-height: 230px;
             }
 
             .signature-line {
                 height: 65px;
             }
 
-            .slogan {
-                font-size: 19px;
-            }
-        }
-
-        /* تقليل المسافات في الشاشات القصيرة */
-        @media (min-width: 600px) and (max-height: 750px) {
-            .poster {
-                padding-top: 3px;
-                padding-bottom: 3px;
-            }
-
-            .map img {
-                max-height: 210px;
-            }
-
-            .signature-line {
-                height: 75px;
-            }
-
             h1 {
-                font-size: 34px;
+                font-size: 35px;
             }
 
             .description {
@@ -367,11 +360,43 @@
             }
 
             .slogan {
-                font-size: 22px;
+                font-size: 20px;
+            }
+
+            .credits {
+                font-size: 13px;
+            }
+        }
+
+        /* الشاشات القصيرة */
+        @media (min-width: 600px) and (max-height: 750px) {
+            .poster {
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+
+            .map img {
+                max-height: 230px;
+            }
+
+            .signature-line {
+                height: 80px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .description {
+                font-size: 17px;
+            }
+
+            .slogan {
+                font-size: 25px;
             }
 
             .top {
-                font-size: 17px;
+                font-size: 19px;
             }
         }
     </style>
@@ -381,10 +406,7 @@
 
     <main class="poster">
 
-        <header class="top">
-            مبادرة جميلة
-        </header>
-
+    
         <section class="paper">
 
             <h1>المادة 34</h1>
