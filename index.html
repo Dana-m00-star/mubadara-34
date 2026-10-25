@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مبادرة جميلة | المادة 34</title>
+    <title>المادة 34</title>
 
     <style>
         * {
@@ -31,7 +31,7 @@
             width: 100%;
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 8px 12px;
+            padding: 8px 8px;
             background: #f8f4e9;
             text-align: center;
             display: flex;
@@ -39,18 +39,9 @@
             justify-content: center;
         }
 
-        /* العنوان العلوي */
-        .top {
-            color: #174b38;
-            text-align: center;
-            font-size: clamp(20px, 2.6vw, 27px);
-            font-weight: bold;
-            padding: 2px 0 5px;
-        }
-
         .paper {
             width: 100%;
-            max-width: 1500px;
+            max-width: 1600px;
             margin: 0 auto;
             text-align: center;
         }
@@ -58,69 +49,75 @@
         /* العنوان الرئيسي */
         h1 {
             color: #174b38;
-            font-size: clamp(38px, 5.5vw, 54px);
+            font-size: clamp(42px, 5.8vw, 60px);
             margin: 0 0 5px;
-            font-weight: bold;
+            font-weight: 900;
         }
 
-        /* نص المادة */
+        /* عبارة الدفاع عن العقيدة */
         .description {
             color: #174b38;
-            font-size: clamp(17px, 2.5vw, 23px);
-            font-weight: bold;
+            font-size: clamp(23px, 3.2vw, 31px);
+            font-weight: 900;
             line-height: 1.5;
-            max-width: 950px;
-            margin: 0 auto 7px;
+            max-width: 1200px;
+            margin: 0 auto 8px;
         }
 
-        /* الخريطة والخطان */
+        /* صف الخريطة والخطوط */
         .map-row {
             width: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 0;
-            margin: 4px auto 7px;
+            margin: 3px auto 8px;
         }
 
-        /* الخريطة أكبر شوي */
+        /* الخريطة أكبر */
         .map {
-            flex: 0 1 440px;
-            width: 440px;
-            max-width: 48%;
+            flex: 0 1 560px;
+            width: 560px;
+            max-width: 54%;
             min-width: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
+            padding: 0;
         }
 
         .map img {
             display: block;
             width: 100%;
-            max-height: 330px;
+            max-height: 390px;
             height: auto;
             object-fit: contain;
+            margin: 0;
+            padding: 0;
         }
 
-        /* الخطوط تلتصق بالخريطة مباشرة */
+        /* الخطوط التفاعلية: أنحف وملاصقة للخريطة */
         .signature-line {
             position: relative;
             flex: 1 1 0;
             min-width: 0;
             max-width: none;
-            height: 110px;
-            border-top: 2px solid #aaa493;
-            border-bottom: 2px solid #aaa493;
+            height: 100px;
+            border-top: 1px solid #aaa493;
+            border-bottom: 1px solid #aaa493;
             cursor: pointer;
             touch-action: manipulation;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.12);
+            margin: 0;
+            padding: 0;
         }
 
         .signature-line:focus-visible {
             outline: 2px solid #174b38;
-            outline-offset: 2px;
+            outline-offset: 1px;
         }
 
         /* القلوب */
@@ -133,12 +130,12 @@
             line-height: 1;
         }
 
-        /* الشعار */
+        /* الشعار أكبر */
         .slogan {
-            font-size: clamp(25px, 3.6vw, 34px);
-            font-weight: bold;
+            font-size: clamp(31px, 4.5vw, 43px);
+            font-weight: 900;
             line-height: 1.5;
-            margin: 4px 0 0;
+            margin: 5px 0 0;
         }
 
         .green {
@@ -157,7 +154,7 @@
         /* أسماء الإعداد */
         .credits {
             color: #174b38;
-            font-size: clamp(15px, 2vw, 19px);
+            font-size: clamp(16px, 2.1vw, 20px);
             font-weight: bold;
             line-height: 1.5;
             margin: 4px auto 0;
@@ -191,45 +188,42 @@
             background: #22694d;
         }
 
-        /* ضبط الآيباد */
+        /* الآيباد */
         @media (min-width: 600px) and (max-width: 1100px) {
             .poster {
-                padding: 6px 10px;
+                padding: 8px 5px;
                 justify-content: space-evenly;
             }
 
-            .top {
-                font-size: 21px;
-                padding: 0 0 3px;
-            }
-
             h1 {
-                font-size: 44px;
-                margin-bottom: 4px;
+                font-size: 49px;
+                margin-bottom: 5px;
             }
 
             .description {
-                font-size: 19px;
-                line-height: 1.4;
-                margin-bottom: 5px;
+                font-size: 25px;
+                line-height: 1.5;
+                margin-bottom: 6px;
             }
 
             .map-row {
                 gap: 0;
-                margin: 3px 0 5px;
+                margin: 3px 0 6px;
             }
 
             .map {
-                flex: 0 1 390px;
-                max-width: 48%;
+                flex: 0 1 470px;
+                max-width: 56%;
             }
 
             .map img {
-                max-height: 285px;
+                max-height: 340px;
             }
 
             .signature-line {
-                height: 100px;
+                height: 90px;
+                border-top-width: 1px;
+                border-bottom-width: 1px;
             }
 
             .heart {
@@ -237,12 +231,12 @@
             }
 
             .slogan {
-                font-size: 28px;
-                margin-top: 3px;
+                font-size: 35px;
+                margin-top: 4px;
             }
 
             .credits {
-                font-size: 17px;
+                font-size: 18px;
                 margin-top: 3px;
             }
 
@@ -261,47 +255,45 @@
             }
         }
 
-        /* ضبط الجوال */
+        /* الجوال */
         @media (max-width: 599px) {
             .poster {
-                padding: 12px 8px;
+                padding: 12px 4px;
                 min-height: 100vh;
                 min-height: 100dvh;
             }
 
-            .top {
-                font-size: 20px;
-                padding-bottom: 6px;
-            }
-
             h1 {
-                font-size: 39px;
+                font-size: 43px;
                 margin-bottom: 6px;
             }
 
             .description {
-                font-size: 17px;
+                font-size: 21px;
                 line-height: 1.6;
-                margin-bottom: 8px;
+                margin-bottom: 7px;
+                padding: 0 4px;
             }
 
             .map-row {
                 gap: 0;
-                margin: 6px auto 10px;
+                margin: 5px auto 8px;
             }
 
             .map {
-                flex: 0 1 58%;
-                max-width: 58%;
+                flex: 0 1 62%;
+                max-width: 62%;
             }
 
             .map img {
-                max-height: 270px;
+                max-height: 300px;
             }
 
             .signature-line {
                 flex: 1 1 0;
-                height: 80px;
+                height: 75px;
+                border-top-width: 1px;
+                border-bottom-width: 1px;
             }
 
             .heart {
@@ -309,9 +301,9 @@
             }
 
             .slogan {
-                font-size: 24px;
+                font-size: 29px;
                 line-height: 1.6;
-                margin-top: 5px;
+                margin-top: 4px;
             }
 
             .credits {
@@ -331,36 +323,32 @@
         /* الجوالات الصغيرة */
         @media (max-width: 360px) {
             .poster {
-                padding: 8px 5px;
+                padding: 8px 3px;
             }
 
-            .map-row {
-                gap: 0;
+            h1 {
+                font-size: 37px;
+            }
+
+            .description {
+                font-size: 18px;
             }
 
             .map {
-                flex-basis: 58%;
-                max-width: 58%;
+                flex-basis: 62%;
+                max-width: 62%;
             }
 
             .map img {
-                max-height: 230px;
+                max-height: 260px;
             }
 
             .signature-line {
                 height: 65px;
             }
 
-            h1 {
-                font-size: 35px;
-            }
-
-            .description {
-                font-size: 15px;
-            }
-
             .slogan {
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .credits {
@@ -375,28 +363,24 @@
                 padding-bottom: 3px;
             }
 
-            .map img {
-                max-height: 230px;
-            }
-
-            .signature-line {
-                height: 80px;
-            }
-
             h1 {
-                font-size: 38px;
+                font-size: 41px;
             }
 
             .description {
-                font-size: 17px;
+                font-size: 22px;
+            }
+
+            .map img {
+                max-height: 260px;
+            }
+
+            .signature-line {
+                height: 75px;
             }
 
             .slogan {
-                font-size: 25px;
-            }
-
-            .top {
-                font-size: 19px;
+                font-size: 30px;
             }
         }
     </style>
@@ -406,7 +390,6 @@
 
     <main class="poster">
 
-    
         <section class="paper">
 
             <h1>المادة 34</h1>
@@ -419,12 +402,12 @@
 
             <div class="map-row">
 
-                <!-- خط القلوب على يمين الخريطة -->
+                <!-- الخط التفاعلي الأول -->
                 <div
                     class="signature-line"
                     tabindex="0"
                     role="button"
-                    aria-label="اضغطي لإضافة قلب على يمين الخريطة">
+                    aria-label="اضغطي لإضافة قلب بجانب الخريطة">
                 </div>
 
                 <!-- خريطة المملكة العربية السعودية -->
@@ -434,12 +417,12 @@
                         alt="خريطة المملكة العربية السعودية">
                 </div>
 
-                <!-- خط القلوب على يسار الخريطة -->
+                <!-- الخط التفاعلي الثاني -->
                 <div
                     class="signature-line"
                     tabindex="0"
                     role="button"
-                    aria-label="اضغطي لإضافة قلب على يسار الخريطة">
+                    aria-label="اضغطي لإضافة قلب بجانب الخريطة">
                 </div>
 
             </div>
@@ -510,6 +493,10 @@
 
         function placeHeart(line, clientX, clientY) {
             const rect = line.getBoundingClientRect();
+
+            if (!rect.width || !rect.height) {
+                return;
+            }
 
             const x = Math.max(
                 5,
