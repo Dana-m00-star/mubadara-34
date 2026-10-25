@@ -192,75 +192,93 @@
             background: #22694d;
         }
 
-        /* ضبط الآيباد */
-        @media (min-width: 600px) and (max-width: 1100px) {
-            .poster {
-                padding: 6px 10px;
-                justify-content: space-evenly;
-            }
+       /* ضبط الآيباد: أحجام كبيرة وواضحة */
+@media (min-width: 600px) and (max-width: 1100px) {
 
-            .top {
-                font-size: 21px;
-                padding: 0 0 3px;
-            }
+    .poster {
+        padding: 12px 16px;
+        justify-content: center;
+    }
 
-            h1 {
-                font-size: 60px;
-                margin-bottom: 12px;
-            }
+    .paper {
+        width: 100%;
+        max-width: none;
+    }
 
-            .description {
-                font-size: 28px;
-                line-height: 1.7;
-                margin-bottom: 12px;
-            }
+    .top {
+        font-size: 28px;
+        padding: 4px 0 8px;
+    }
 
-            .map-row {
-                gap: 0;
-                margin: 3px 0 5px;
-            }
+    h1 {
+        font-size: 68px;
+        margin: 0 0 14px;
+        line-height: 1.25;
+    }
 
-            .map {
-                flex: 0 1 485px;
-                max-width: 56%;
-            }
+    .description {
+        font-size: 30px;
+        line-height: 1.7;
+        max-width: 100%;
+        margin: 0 auto 16px;
+    }
 
-            .map img {
-                max-height: 395px;
-            }
+    .map-row {
+        width: 100%;
+        gap: 0;
+        margin: 10px auto 14px;
+        align-items: center;
+    }
 
-            .signature-line {
-                height: 100px;
-            }
+    .map {
+        flex: 0 1 55%;
+        width: 55%;
+        max-width: 55%;
+        min-width: 0;
+    }
 
-            .heart {
-                font-size: 24px;
-            }
+    .map img {
+        width: 100%;
+        max-height: 450px;
+        height: auto;
+        object-fit: contain;
+    }
 
-            .slogan {
-                font-size: 38px;
-                margin-top: 6px;
-            }
+    .signature-line {
+        flex: 1 1 0;
+        min-width: 0;
+        height: 120px;
+    }
 
-            .credits {
-                font-size: 17px;
-                margin-top: 3px;
-            }
+    .heart {
+        font-size: 27px;
+    }
 
-            .hint {
-                font-size: 11px;
-                margin-top: 3px;
-            }
+    .slogan {
+        font-size: 40px;
+        line-height: 1.5;
+        margin: 10px 0 0;
+    }
 
-            .buttons {
-                margin-top: 4px;
-            }
+    .credits {
+        font-size: 20px;
+        margin-top: 8px;
+    }
 
-            button {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-        }
+    .hint {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    .buttons {
+        margin-top: 8px;
+    }
+
+    button {
+        padding: 9px 16px;
+        font-size: 15px;
+    }
+}
 
         /* ضبط الجوال */
         @media (max-width: 599px) {
@@ -369,37 +387,7 @@
             }
         }
 
-        /* الشاشات القصيرة */
-        @media (min-width: 600px) and (max-height: 750px) {
-            .poster {
-                padding-top: 3px;
-                padding-bottom: 3px;
-            }
-
-            .map img {
-                max-height: 230px;
-            }
-
-            .signature-line {
-                height: 80px;
-            }
-
-            h1 {
-                font-size: 44px;
-            }
-
-            .description {
-                font-size: 21px;
-            }
-
-            .slogan {
-                font-size: 29px;
-            }
-
-            .top {
-                font-size: 19px;
-            }
-        }
+       
     </style>
 </head>
 
