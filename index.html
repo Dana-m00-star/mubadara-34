@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مبادرة جميلة | المادة 34</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 12px;
+            background: #e7e5df;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .poster {
+            max-width: 650px;
+            margin: auto;
+            padding: 22px;
+            background: #171923;
+            border: 8px solid #292a33;
+        }
+
+        .top {
+            color: white;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            padding: 12px 0 25px;
+            border-bottom: 4px solid #30313a;
+        }
+
+        .paper {
+            background: #f8f4e9;
+            padding: 25px 12px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #174b38;
+            font-size: clamp(38px, 9vw, 58px);
+            margin: 10px 0;
+        }
+
+        .description {
+            color: #174b38;
+            font-size: clamp(20px, 5vw, 27px);
+            font-weight: bold;
+            line-height: 1.8;
+        }
+
+        .map {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #174b38;
+            font-size: 16px;
+        }
+
+        .map svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .signature-line {
+            position: relative;
+            height: 58px;
+            margin: 14px 0;
+            border-top: 2px solid #aaa493;
+            border-bottom: 2px solid #aaa493;
+            cursor: crosshair;
+            touch-action: manipulation;
+        }
+
+        .heart {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            font-size: 26px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .slogan {
+            font-size: clamp(25px, 6.5vw, 38px);
+            font-weight: bold;
+            line-height: 1.8;
+            margin-top: 18px;
+        }
+
+        .green {
+            color: #174b38;
+        }
+
+        .red {
+            color: #c51d3b;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 13px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #174b38;
+            color: white;
+        }
+
+        button:hover {
+            background: #22694d;
+        }
+
+        .hint {
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="poster">
+
+        <header class="top">
+            مبادرة جميلة
+        </header>
+
+        <section class="paper">
+
+            <h1>المادة 34</h1>
+
+            <p class="description">
+                الدفاع عن العقيدة الإسلامية،
+                والمجتمع، والوطن،
+                واجب على كل مواطن.
+            </p>
+
+            <div class="map" aria-label="مكان خريطة السعودية">
+
+                <!-- سنضع خريطة السعودية الحقيقية هنا -->
+
+                <span>خريطة السعودية</span>
+
+            </div>
+
+            <div class="signature-line"
+                 aria-label="خط البصمات الأول"></div>
+
+            <div class="signature-line"
+                 aria-label="خط البصمات الثاني"></div>
+
+            <p class="slogan">
+                <span class="green">بصمة دفاع.. السعودية</span>
+                <span class="red">خط أحمر</span>
+            </p>
+
+            <p class="hint">
+                اضغطي على الخط واتركي بصمتك ❤️
+            </p>
+
+        </section>
+
+        <div class="buttons">
+            <button id="clearButton" type="button">
+                إعادة من البداية ↺
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        const lines = document.querySelectorAll(".signature-line");
+        const storageKey = "mubadara34-hearts";
+
+        function addHeart(line, x, y, save = true) {
+            const heart = document.createElement("span");
+
+            heart.className = "heart";
+            heart.textContent = "❤️";
+
+            heart.style.left = x + "%";
+            heart.style.top = y + "%";
+
+            heart.dataset.x = x;
+            heart.dataset.y = y;
+
+            line.appendChild(heart);
+
+            if (save) {
+                saveHearts();
+            }
+        }
+
+        function saveHearts() {
+            const data = [...lines].map(line =>
+                [...line.querySelectorAll(".heart")].map(heart => ({
+                    x: Number(heart.dataset.x),
+                    y: Number(heart.dataset.y)
+                }))
+            );
+
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(data));
+            } catch (error) {
+                console.log("تعذر حفظ البصمات");
+            }
+        }
+
+        lines.forEach(line => {
+            line.addEventListener("click", event => {
+                const rect = line.getBoundingClientRect();
+
+                const x = Math.max(
+                    2,
+                    Math.min(98,
+                        ((event.clientX - rect.left) / rect.width) * 100
+                    )
+                );
+
+                const y = Math.max(
+                    10,
+                    Math.min(90,
+                        ((event.clientY - rect.top) / rect.height) * 100
+                    )
+                );
+
+                addHeart(line, x, y);
+            });
+        });
+
+        function loadHearts() {
+            try {
+                const data = JSON.parse(
+                    localStorage.getItem(storageKey) || "[]"
+                );
+
+                data.forEach((hearts, index) => {
+                    if (!lines[index] || !Array.isArray(hearts)) {
+                        return;
+                    }
+
+                    hearts.forEach(heart => {
+                        addHeart(
+                            lines[index],
+                            heart.x,
+                            heart.y,
+                            false
+                        );
+                    });
+                });
+            } catch (error) {
+                console.log("تعذر استعادة البصمات");
+            }
+        }
+
+        document
+            .getElementById("clearButton")
+            .addEventListener("click", () => {
+                lines.forEach(line => {
+                    line.replaceChildren();
+                });
+
+                try {
+                    localStorage.removeItem(storageKey);
+                } catch (error) {
+                    console.log("تعذر مسح الحفظ");
+                }
+            });
+
+        loadHearts();
+    </script>
+
+</body>
+</html>
