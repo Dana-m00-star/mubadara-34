@@ -106,19 +106,25 @@
 
         /* الخطوط التفاعلية */
         .signature-line {
-            position: relative;
-            flex: 1 1 0;
-            min-width: 0;
-            max-width: none;
-            height: 110px;
-            border-top: 2px solid #aaa493;
-            border-bottom: 2px solid #aaa493;
-            cursor: pointer;
-            touch-action: manipulation;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.16);
-        }
-
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    height: 110px;
+    border-top: 2px solid #aaa493;
+    border-bottom: 2px solid #aaa493;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.16);
+    outline: none;
+    box-shadow: none;
+    filter: none;
+}
         .signature-line:focus-visible {
             outline: 2px solid #174b38;
             outline-offset: 2px;
