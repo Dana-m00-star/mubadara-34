@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>مبادرة جميلة | المادة 34</title>
+    <title>مبادرة جميلة - المادة 34</title>
 
     <style>
         * {
@@ -14,138 +12,200 @@
 
         body {
             margin: 0;
-            padding: 25px 12px;
-            background: #e7e5df;
+            padding: 20px;
+            background-color: #171923;
             font-family: Tahoma, Arial, sans-serif;
+            color: #292b35;
         }
 
-        .poster {
-            max-width: 650px;
-            margin: auto;
-            padding: 22px;
-            background: #171923;
-            border: 8px solid #292a33;
-        }
-
-        .top {
-            color: white;
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f8f4e9;
+            padding: 35px;
+            border: 5px solid #c5b58b;
+            outline: 2px solid #f8f4e9;
+            outline-offset: -12px;
+            min-height: 700px;
             text-align: center;
-            font-size: 26px;
+        }
+
+        .header {
+            font-size: 23px;
             font-weight: bold;
-            padding: 12px 0 25px;
-            border-bottom: 4px solid #30313a;
+            color: #171923;
+            margin-bottom: 25px;
         }
 
-        .paper {
-            background: #f8f4e9;
-            padding: 25px 12px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #174b38;
-            font-size: clamp(38px, 9vw, 58px);
+        .title {
+            font-size: 58px;
+            font-weight: bold;
+            color: #a52530;
             margin: 10px 0;
         }
 
-        .description {
-            color: #174b38;
-            font-size: clamp(20px, 5vw, 27px);
+        .article {
+            font-size: 25px;
             font-weight: bold;
-            line-height: 1.8;
+            line-height: 2;
+            margin: 15px auto;
+            max-width: 700px;
         }
 
-        /* خريطة المملكة العربية السعودية */
+        .map-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin: 25px auto;
+            max-width: 650px;
+        }
+
+        .red-line {
+            flex: 1;
+            height: 5px;
+            background-color: #a52530;
+            border-radius: 5px;
+        }
+
         .map {
-            width: 100%;
-            max-width: 300px;
+            width: 180px;
+            max-width: 45%;
+            height: auto;
+            display: block;
+        }
+
+        .instruction {
+            font-size: 18px;
+            color: #55545b;
+            line-height: 1.9;
             margin: 20px auto;
+        }
+
+        .signatures {
             display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 30px;
+            margin: 35px auto 20px;
         }
 
-        .map img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .signature-line {
-            position: relative;
-            height: 58px;
-            margin: 14px 0;
-            border-top: 2px solid #aaa493;
-            border-bottom: 2px solid #aaa493;
-            cursor: crosshair;
-            touch-action: manipulation;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            font-size: 26px;
-            pointer-events: none;
+        .signature {
+            flex: 1;
+            max-width: 300px;
+            min-width: 0;
+            border-bottom: 2px solid #a52530;
+            padding: 15px 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #292b35;
+            cursor: pointer;
             user-select: none;
-            line-height: 1;
+            min-height: 70px;
+        }
+
+        .hearts {
+            display: block;
+            color: #a52530;
+            font-size: 25px;
+            margin-top: 8px;
+            overflow-wrap: anywhere;
         }
 
         .slogan {
-            font-size: clamp(25px, 6.5vw, 38px);
+            font-size: 25px;
             font-weight: bold;
+            color: #a52530;
+            margin-top: 30px;
             line-height: 1.8;
-            margin-top: 18px;
-        }
-
-        .green {
-            color: #174b38;
-        }
-
-        .red {
-            color: #c51d3b;
         }
 
         .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         button {
+            background-color: #a52530;
+            color: #ffffff;
             border: none;
+            padding: 12px 25px;
             border-radius: 8px;
-            padding: 13px 18px;
             font-size: 16px;
+            font-family: inherit;
             cursor: pointer;
-            background: #174b38;
-            color: white;
         }
 
         button:hover {
-            background: #22694d;
+            background-color: #801c25;
         }
 
-        .hint {
-            color: #777;
-            font-size: 14px;
+        .credits {
+            color: #f8f4e9;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 22px auto 0;
+            padding: 16px 5px 5px;
+            border-top: 1px solid #454650;
+            max-width: 900px;
         }
 
-        @media (max-width: 480px) {
-            .poster {
+        @media (max-width: 600px) {
+            body {
                 padding: 12px;
-                border-width: 5px;
             }
 
-            .paper {
-                padding: 20px 10px;
+            .page {
+                padding: 25px 18px;
+                min-height: auto;
+            }
+
+            .header {
+                font-size: 20px;
+            }
+
+            .title {
+                font-size: 43px;
+            }
+
+            .article {
+                font-size: 20px;
+            }
+
+            .map-container {
+                gap: 10px;
             }
 
             .map {
-                max-width: 240px;
+                width: 135px;
+            }
+
+            .red-line {
+                height: 4px;
+            }
+
+            .instruction {
+                font-size: 16px;
+            }
+
+            .signatures {
+                gap: 15px;
+            }
+
+            .signature {
+                font-size: 15px;
+                padding: 12px 3px;
+            }
+
+            .hearts {
+                font-size: 22px;
+            }
+
+            .slogan {
+                font-size: 21px;
+            }
+
+            .credits {
+                font-size: 15px;
             }
         }
     </style>
@@ -153,154 +213,124 @@
 
 <body>
 
-    <main class="poster">
+    <main class="page">
 
-        <header class="top">
+        <header class="header">
             مبادرة جميلة
         </header>
 
-        <section class="paper">
+        <h1 class="title">
+            المادة 34
+        </h1>
 
-            <h1>المادة 34</h1>
+        <p class="article">
+            الدفاع عن العقيدة الإسلامية، والمجتمع، والوطن،
+            واجب على كل مواطن.
+        </p>
 
-            <p class="description">
-                الدفاع عن العقيدة الإسلامية،
-                والمجتمع، والوطن،
-                واجب على كل مواطن.
-            </p>
+        <div class="map-container">
 
-            <!-- خريطة السعودية -->
-            <div class="map">
-                <img src="sa.svg"
-                     alt="خريطة المملكة العربية السعودية">
+            <div class="red-line"></div>
+
+            <img
+                class="map"
+                src="sa.svg"
+                alt="خريطة المملكة العربية السعودية"
+            >
+
+            <div class="red-line"></div>
+
+        </div>
+
+        <p class="instruction">
+            اترك بصمتك وعبّر عن حبك وولائك لوطنك 🇸🇦
+            <br>
+            اضغط على مكان التوقيع لإضافة قلب ❤️
+        </p>
+
+        <section class="signatures">
+
+            <div class="signature" data-signature="1" role="button" tabindex="0">
+                بصمتي لوطني
+                <span class="hearts" id="hearts1"></span>
             </div>
 
-            <!-- مكان البصمات -->
-            <div class="signature-line"
-                 aria-label="خط البصمات الأول"></div>
-
-            <div class="signature-line"
-                 aria-label="خط البصمات الثاني"></div>
-
-            <p class="slogan">
-                <span class="green">بصمة دفاع.. السعودية</span>
-                <span class="red">خط أحمر</span>
-            </p>
-
-            <p class="hint">
-                اضغطي على الخط واتركي بصمتك ❤️
-            </p>
+            <div class="signature" data-signature="2" role="button" tabindex="0">
+                عهدي لوطني
+                <span class="hearts" id="hearts2"></span>
+            </div>
 
         </section>
 
-        <div class="buttons">
-            <button id="clearButton" type="button">
-                إعادة من البداية ↺
-            </button>
+        <div class="slogan">
+            بصمة دفاع.. السعودية خط أحمر 🇸🇦
         </div>
 
     </main>
 
+    <div class="buttons">
+        <button id="clearButton" type="button">
+            إعادة من البداية ↺
+        </button>
+    </div>
+
+    <footer class="credits">
+        إعداد: أ/ نوال الثبيتي - أ/ ساره الثبيتي
+    </footer>
+
     <script>
-        const lines = document.querySelectorAll(".signature-line");
-        const storageKey = "mubadara34-hearts";
+        const signatures = document.querySelectorAll(".signature");
 
-        function addHeart(line, x, y, save = true) {
-            const heart = document.createElement("span");
+        function loadHearts() {
+            signatures.forEach(function (signature) {
+                const number = signature.dataset.signature;
+                const heartsElement = document.getElementById("hearts" + number);
+                const savedHearts = Number(
+                    localStorage.getItem("hearts" + number) || 0
+                );
 
-            heart.className = "heart";
-            heart.textContent = "❤️";
-
-            heart.style.left = x + "%";
-            heart.style.top = y + "%";
-
-            heart.dataset.x = x;
-            heart.dataset.y = y;
-
-            line.appendChild(heart);
-
-            if (save) {
-                saveHearts();
-            }
+                heartsElement.textContent = "❤️".repeat(
+                    Math.min(savedHearts, 100)
+                );
+            });
         }
 
-        function saveHearts() {
-            const data = [...lines].map(line =>
-                [...line.querySelectorAll(".heart")].map(heart => ({
-                    x: Number(heart.dataset.x),
-                    y: Number(heart.dataset.y)
-                }))
+        function addHeart(signature) {
+            const number = signature.dataset.signature;
+            const heartsElement = document.getElementById("hearts" + number);
+            const currentHearts = Number(
+                localStorage.getItem("hearts" + number) || 0
             );
 
-            try {
-                localStorage.setItem(storageKey, JSON.stringify(data));
-            } catch (error) {
-                console.log("تعذر حفظ البصمات");
+            if (currentHearts >= 100) {
+                return;
             }
+
+            const newHearts = currentHearts + 1;
+
+            localStorage.setItem("hearts" + number, newHearts);
+
+            heartsElement.textContent = "❤️".repeat(newHearts);
         }
 
-        lines.forEach(line => {
-            line.addEventListener("click", event => {
-                const rect = line.getBoundingClientRect();
+        signatures.forEach(function (signature) {
+            signature.addEventListener("click", function () {
+                addHeart(signature);
+            });
 
-                const x = Math.max(
-                    2,
-                    Math.min(
-                        98,
-                        ((event.clientX - rect.left) / rect.width) * 100
-                    )
-                );
-
-                const y = Math.max(
-                    10,
-                    Math.min(
-                        90,
-                        ((event.clientY - rect.top) / rect.height) * 100
-                    )
-                );
-
-                addHeart(line, x, y);
+            signature.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    addHeart(signature);
+                }
             });
         });
 
-        function loadHearts() {
-            try {
-                const data = JSON.parse(
-                    localStorage.getItem(storageKey) || "[]"
-                );
-
-                data.forEach((hearts, index) => {
-                    if (!lines[index] || !Array.isArray(hearts)) {
-                        return;
-                    }
-
-                    hearts.forEach(heart => {
-                        addHeart(
-                            lines[index],
-                            heart.x,
-                            heart.y,
-                            false
-                        );
-                    });
-                });
-            } catch (error) {
-                console.log("تعذر استعادة البصمات");
-            }
-        }
-
-        document
-            .getElementById("clearButton")
-            .addEventListener("click", () => {
-                lines.forEach(line => {
-                    line.replaceChildren();
-                });
-
-                try {
-                    localStorage.removeItem(storageKey);
-                } catch (error) {
-                    console.log("تعذر مسح الحفظ");
-                }
-            });
+        document.getElementById("clearButton").addEventListener("click", function () {
+            localStorage.removeItem("hearts1");
+            localStorage.removeItem("hearts2");
+            loadHearts();
+        });
 
         loadHearts();
     </script>
