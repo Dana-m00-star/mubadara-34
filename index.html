@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مبادرة جميلة | المادة 34</title>
+    <title> | المادة 34</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
-        html {
-            min-height: 100%;
-            background: #f8f4e9;
-        }
-
+        html,
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            width: 100%;
+            min-height: 100%;
             background: #f8f4e9;
             font-family: Tahoma, Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
         }
 
         .poster {
             width: 100%;
             min-height: 100vh;
-            margin: 0 auto;
-            padding: 25px 35px;
+            min-height: 100dvh;
+            padding: 8px 12px;
             background: #f8f4e9;
             text-align: center;
             display: flex;
@@ -40,49 +42,49 @@
         .top {
             color: #174b38;
             text-align: center;
-            font-size: clamp(22px, 3vw, 30px);
+            font-size: clamp(17px, 2.3vw, 24px);
             font-weight: bold;
-            padding: 5px 0 15px;
+            padding: 2px 0 5px;
         }
 
         .paper {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
             text-align: center;
         }
 
         h1 {
             color: #174b38;
-            font-size: clamp(45px, 7vw, 72px);
-            margin: 5px 0 15px;
+            font-size: clamp(34px, 5vw, 48px);
+            margin: 0 0 4px;
             font-weight: bold;
         }
 
         .description {
             color: #174b38;
-            font-size: clamp(20px, 3.3vw, 29px);
+            font-size: clamp(15px, 2.2vw, 20px);
             font-weight: bold;
-            line-height: 1.8;
+            line-height: 1.5;
             max-width: 850px;
-            margin: 0 auto 20px;
+            margin: 0 auto 5px;
         }
 
-        /* الخريطة والخطوط على الجانبين */
+        /* الخريطة والخطان على الجانبين */
         .map-row {
             width: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
-            gap: 22px;
-            margin: 10px auto 20px;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 4px auto 7px;
         }
 
         .map {
-            flex: 0 1 490px;
-            width: 490px;
-            max-width: 55%;
+            flex: 0 1 400px;
+            width: 400px;
+            max-width: 44%;
             min-width: 0;
             display: flex;
             align-items: center;
@@ -92,18 +94,18 @@
         .map img {
             display: block;
             width: 100%;
-            max-height: 430px;
+            max-height: 300px;
             height: auto;
             object-fit: contain;
         }
 
-        /* خطا القلوب: واحد على كل جانب من الخريطة */
+        /* خطوط تفاعلية طويلة على جانبي الخريطة */
         .signature-line {
             position: relative;
             flex: 1 1 0;
-            min-width: 65px;
-            max-width: 210px;
-            height: 100px;
+            min-width: 0;
+            max-width: none;
+            height: 105px;
             border-top: 2px solid #aaa493;
             border-bottom: 2px solid #aaa493;
             cursor: pointer;
@@ -114,23 +116,23 @@
 
         .signature-line:focus-visible {
             outline: 2px solid #174b38;
-            outline-offset: 3px;
+            outline-offset: 2px;
         }
 
         .heart {
             position: absolute;
             transform: translate(-50%, -50%);
-            font-size: clamp(20px, 3vw, 30px);
+            font-size: clamp(17px, 2.5vw, 27px);
             pointer-events: none;
             user-select: none;
             line-height: 1;
         }
 
         .slogan {
-            font-size: clamp(27px, 4.5vw, 42px);
+            font-size: clamp(22px, 3.3vw, 30px);
             font-weight: bold;
-            line-height: 1.7;
-            margin: 15px 0 5px;
+            line-height: 1.5;
+            margin: 4px 0 0;
         }
 
         .green {
@@ -143,29 +145,35 @@
 
         .flag {
             display: inline-block;
-            margin-right: 5px;
+            margin-right: 3px;
         }
 
         .credits {
             color: #174b38;
-            font-size: clamp(16px, 2.5vw, 21px);
+            font-size: clamp(13px, 1.8vw, 17px);
             font-weight: bold;
-            line-height: 1.9;
-            margin: 12px auto 0;
-            padding-bottom: 5px;
+            line-height: 1.5;
+            margin: 3px auto 0;
+            padding: 0;
+        }
+
+        .hint {
+            color: #777064;
+            font-size: 11px;
+            margin: 3px 0 0;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
-            margin: 12px 0 0;
+            margin: 5px 0 0;
         }
 
         button {
             border: none;
-            border-radius: 8px;
-            padding: 11px 20px;
-            font-size: 15px;
+            border-radius: 7px;
+            padding: 7px 14px;
+            font-size: 12px;
             font-family: inherit;
             cursor: pointer;
             background: #174b38;
@@ -176,105 +184,194 @@
             background: #22694d;
         }
 
-        .hint {
-            color: #777064;
-            font-size: 14px;
-            margin: 5px 0 0;
-        }
-
-        /* تنسيق الآيباد */
+        /* ضبط خاص للآيباد */
         @media (min-width: 600px) and (max-width: 1100px) {
             .poster {
-                padding: 25px 28px;
-            }
-
-            .map-row {
-                gap: 18px;
-            }
-
-            .map {
-                flex-basis: 420px;
-                max-width: 57%;
-            }
-
-            .map img {
-                max-height: 380px;
-            }
-
-            .signature-line {
-                height: 100px;
-                max-width: 180px;
-            }
-        }
-
-        /* تنسيق الجوال */
-        @media (max-width: 599px) {
-            .poster {
-                padding: 18px 12px;
-                min-height: 100vh;
+                padding: 6px 10px;
+                justify-content: space-evenly;
             }
 
             .top {
-                padding-bottom: 10px;
+                font-size: 19px;
+                padding: 0 0 3px;
             }
 
             h1 {
-                margin: 5px 0 12px;
+                font-size: 40px;
+                margin-bottom: 3px;
             }
 
             .description {
-                margin-bottom: 12px;
+                font-size: 17px;
+                line-height: 1.4;
+                margin-bottom: 3px;
             }
 
             .map-row {
-                gap: 7px;
-                margin: 12px auto 18px;
+                gap: 9px;
+                margin: 3px 0 5px;
             }
 
             .map {
-                flex: 0 1 62%;
-                max-width: 62%;
+                flex-basis: 350px;
+                max-width: 43%;
             }
 
             .map img {
-                max-height: 300px;
+                max-height: 260px;
             }
 
             .signature-line {
-                min-width: 0;
-                height: 75px;
-                flex: 1 1 19%;
-            }
-
-            .heart {
-                font-size: 21px;
+                height: 95px;
             }
 
             .slogan {
-                margin-top: 10px;
+                font-size: 25px;
+                margin-top: 2px;
             }
 
             .credits {
-                margin-top: 8px;
+                font-size: 15px;
+                margin-top: 2px;
+            }
+
+            .hint {
+                font-size: 10px;
+                margin-top: 2px;
+            }
+
+            .buttons {
+                margin-top: 3px;
+            }
+
+            button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* ضبط خاص للجوال */
+        @media (max-width: 599px) {
+            .poster {
+                padding: 12px 8px;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+
+            .top {
+                padding-bottom: 6px;
+            }
+
+            h1 {
+                font-size: 35px;
+                margin-bottom: 6px;
+            }
+
+            .description {
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 8px;
+            }
+
+            .map-row {
+                gap: 5px;
+                margin: 6px auto 10px;
+            }
+
+            .map {
+                flex: 0 1 58%;
+                max-width: 58%;
+            }
+
+            .map img {
+                max-height: 260px;
+            }
+
+            .signature-line {
+                flex: 1 1 0;
+                height: 75px;
+            }
+
+            .heart {
+                font-size: 19px;
+            }
+
+            .slogan {
+                font-size: 22px;
+                line-height: 1.6;
+                margin-top: 5px;
+            }
+
+            .credits {
+                font-size: 14px;
+                margin-top: 5px;
+            }
+
+            .hint {
+                font-size: 10px;
+            }
+
+            .buttons {
+                margin-top: 7px;
             }
         }
 
         @media (max-width: 360px) {
             .poster {
-                padding: 14px 8px;
+                padding: 8px 5px;
             }
 
             .map-row {
-                gap: 5px;
+                gap: 4px;
             }
 
             .map {
-                flex-basis: 64%;
-                max-width: 64%;
+                flex-basis: 58%;
+                max-width: 58%;
+            }
+
+            .map img {
+                max-height: 220px;
             }
 
             .signature-line {
                 height: 65px;
+            }
+
+            .slogan {
+                font-size: 19px;
+            }
+        }
+
+        /* تقليل المسافات في الشاشات القصيرة */
+        @media (min-width: 600px) and (max-height: 750px) {
+            .poster {
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+
+            .map img {
+                max-height: 210px;
+            }
+
+            .signature-line {
+                height: 75px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .slogan {
+                font-size: 22px;
+            }
+
+            .top {
+                font-size: 17px;
             }
         }
     </style>
@@ -471,4 +568,5 @@
     </script>
 
 </body>
+
 </html>
